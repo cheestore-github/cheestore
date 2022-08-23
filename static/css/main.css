@@ -1,0 +1,77 @@
+@font-face {
+    font-family: 'Yekan';
+    src: url('../fonts/Yekan.eot') format("eot"),
+        url('../fonts/Yekan.ttf') format("ttf"),
+        url('../fonts/Yekan.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Koodak';
+    src: url('../fonts/Koodak.eot') format("eot"),
+        url('../fonts/Koodak.ttf') format("ttf"),
+        url('../fonts/Koodak.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'Nazanin';
+    src: url('../fonts/Nazanin.eot') format("eot"),
+        url('../fonts/Nazanin.ttf') format("ttf"),
+        url('../fonts/Nazanin.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSANSExpanded';
+    src: url('../fonts/IRANSANSExpanded.eot') format("eot"),
+        url('../fonts/IRANSANSExpanded.woff2') format("woff2"),
+        url('../fonts/IRANSANSExpanded.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'IRANSans-Black';
+    src: url('../fonts/IRANSans-Black.eot') format("eot"),
+        url('../fonts/IRANSans-Black.woff2') format("woff2"),
+        url('../fonts/IRANSans-Black.woff') format("woff");
+    font-weight: normal;
+    font-style: normal;
+}
+
+
+
+body{
+    font-family: 'IRANSANSExpanded';
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+footer{
+    margin-top: auto;
+}
+
+
+
+.form-group{
+    margin-top: 20px;
+
+}
+
+
+a{
+    text-decoration: none;
+}
+
+.container {
+    margin: 10px auto;
+}
+
+.container-fluid {
+    margin: 10px auto;
+}

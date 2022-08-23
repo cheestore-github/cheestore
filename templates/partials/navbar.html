@@ -1,0 +1,51 @@
+{% load static %}
+
+<nav class="navbar navbar-expand-lg bg-light">
+  <div class="container-fluid">
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link" href="#">صفحه اصلی</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">تولید کنندگان</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            محصولات
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">مردانه</a></li>
+            <li><a class="dropdown-item" href="#">زنانه</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">بچه گانه</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <ul class="navbar-nav ml-auto">
+      {% if user.is_authenticated %}
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'accounts:logout' %}">خروج</a>
+        </li>  
+        <li class="nav-item">
+          <h4>{{user.name}} {{user.family}} عزیز خوش آمدید</h4>
+        </li>
+        {% else %}
+        <li class="nav-item">
+          <h4>میهمان عزیز خوش آمدید</h4>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'accounts:login' %}">ورود</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="{% url 'accounts:register' %}">ثبت نام</a>
+        </li>       
+      {% endif %}
+    </ul>
+  </div>
+</nav>

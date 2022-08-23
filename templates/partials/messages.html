@@ -1,0 +1,16 @@
+{% if messages %}
+    {% for message in messages %}
+        <h3 {% if message.tags %}  class="alert alert-{{message.tags}}">{% endif %}{{message}}</h3>
+    {% endfor %}
+{% endif %}
+
+
+
+
+
+{% comment %} {% if messages %}
+    {% for message in messages %}
+        {% if message.tags %}  <script>alert("{{ message }}")</script> {% endif %}
+    {% endfor %}
+{% endif %} {% endcomment %}
+
