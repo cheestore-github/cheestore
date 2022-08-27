@@ -6,11 +6,10 @@
 <h1>صفحه ثبت نام فروشندگان </h1>
 
 
-<form action="{% url 'sellerRegister' %}" method="post">
+<form action="" method="post">
     {% csrf_token %}
 
-    {{form.as_p}}
-    <textarea class= "container mt-auto" dir='rtl' name="rule" id="rule" cols="50" rows="10" style="overflow:auto;">
+    <textarea class= "container-fluid mt-auto" dir='rtl' name="rule" id="rule" cols="50" rows="10" style="overflow:auto;">
         قوانین و قرارداد
         مقدمه
         شرکت لیان یاقوت ممتاز ایده در راستای رسالت خود در جهت حمایت از بنگاه‌های اقتصادی و توسعه کارآفرینی و بهبود فضای کسب و کار مجازی در تاریخ مطابق مواد ۱۰ و ۲۱۹ قانون مدنی بر اساس تعامل مشترک و حسن نیت و مفاد ذیل اقدام به انعقاد قرارداد می نماید
@@ -194,7 +193,6 @@
 
 </form>
 
-
+{% endblock content %}
 
   
-{% endblock content %}

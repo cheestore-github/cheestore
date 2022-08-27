@@ -1,51 +1,31 @@
 {% extends 'main.html' %}
+{% load crispy_forms_tags %}
 
 {% block title %}صفحه ورود فروشندگان{% endblock title %}
+
+
+
+
 {% block content %}
-
-<ul class="nav me-5 justify-content-end">
-<li>
-    {% if user.is_authenticated %}
-        <p>کاربر {{ user.username }} خوش آمدید</p>
-    {% else %}
-        <p>میهمان عزیز خوش آمدید، لطفا ثبت نام کنید</p>
-    {% endif %}
-</li>
-</ul>
-
-<h1>به صفحه فروشندگان چی استور خوش آمدید</h1>
-
-
-<div class="container mt-auto">
-
-
-<form action="{% url 'sellerLogin' %}" method="post" id="login-form" >
-    {% csrf_token %}
-    <div class= "mt-2">
-        <label for="phone_number">تلفن همراه :</label>
-        <input name='phone_number' placeholder='تلفن همراه خود را وارد کنید' maxlength='255' autocomplete='email' required>
+    <h1 class="text-center text-primary">ورود فروشندگان</h1>
+    <div class="row justify-content-md-center">
+        <form action="" method="post">
+            {% csrf_token %}
+            {{ form | crispy }}
+            <input type="submit" value="ورود" class='btn btn-primary'>
+        </form>
     </div>
-               
-    <div class= "mt-2">
-        <label for="password">رمز عبور :</label>
-        <input name='password' type='password' placeholder='رمز عبور خود را وارد کنید' minlength='4' maxlength='255' autocomplete='current-password' required>
+    <div>
+        <p><a href="">رمز عبورم را فراموش کرده ام</a></p>
     </div>
-
-    <div class= "mt-2">
-        <input class ="btn btn-success" type="submit" value="ورود">
-        <input type="hidden" name="next" value="{{ next }}"> 
-    </div>          
-</form>
-</div>
-
-<div>
-    <p><a href="">رمز عبورم را فراموش کرده ام</a></p>
-</div>
-
-
-<div>
-    <p>هنوز ثبت نام کرده اید؟<a href="{% url 'sellerRegister' %}">همین حالا ثبت نام کنید</a></p>
     
-</div>
-           
+    
+    <div>
+        <p>هنوز ثبت نام کرده اید؟<a href="{% url 'seller:phone_register' %}">همین حالا ثبت نام کنید</a></p>
+        
+    </div>
 {% endblock content %}
+
+
+
+

@@ -1,26 +1,18 @@
 {% extends 'main.html' %}
 
-{% block title %}ثبت نام فروشندگان{% endblock title %}
+{% load crispy_forms_tags %}
+
+{% block title %}صفحه ثبت نام فروشندگان{% endblock title %}
+
 
 {% block content %}
-<h1>صفحه ثبت نام فروشندگان </h1>
-
-
-<form action="{% url 'sellerRegister' %}" method="post">
-    {% csrf_token %}
-
-    {{form.as_p}}
-    {% comment %}
-     {% for field in form %}
-    <div class="form-group">
-        <strong> {{ field.label_tag }} </strong>
-        <div class="ui left input">
-            <input type="text" placeholder="{{ field.label }}" class="form-control">
-        </div>
-    </div>
-    {% endfor %}
-    {% endcomment %}
-    
-    <input class = "btn btn-success m-5" type="submit" value="ثبت نام">
-</form>
+<h1 class="text-center text-primary">ثبت نام فروشندگان</h1>
+<div class="row justify-content-md-center form-group">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ user_form | crispy }}
+        {{ seller_form | crispy }}
+        <input type="submit" value="ثبت نام" class="btn btn-success">
+    </form>
+</div>
 {% endblock content %}

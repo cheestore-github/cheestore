@@ -1,9 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
 
-# class Example(models.Model):
-#     category = models.JSONField(verbose_name="مردانه", default ={'men':[{'jorab':['mardane','zanane', 'bachegane']}, 'shalvr']})
-
 
 class MyUserManager(BaseUserManager):
     def create_user(self, name,family,phone_number,national_code,email, password=None):

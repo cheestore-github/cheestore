@@ -1,0 +1,33 @@
+{% extends 'main.html' %}
+
+{% block title %}تایید تلفن همراه{% endblock title %}
+{% block content %}
+
+<h3>{{message}}</h3>
+
+<p>لطفا کد ارسال شده را وارد کنید</p>
+<form action="" >
+    {% csrf_token %}
+    <div class="form-group mt-2">
+        <label for="phone_verify">کد تایید : </label>
+        <input type="number" name="phone_verify" id="phone_verify">
+    </div>
+    <div class= "mt-2">
+        <input type="submit" class="btn btn-primary" value="ارسال">
+    </div>
+</form>
+<div class= "mt-4">
+    <p>کدی دریافت نکرده اید؟<a href="#">ارسال مجدد کد</a></p>
+    
+</div>
+<div class= "mt-2">
+    <p><a href="">ویرایش شماره تلفن</a></p>
+</div>
+
+{{code}}
+
+        
+{% endblock content %}
+
+
+
