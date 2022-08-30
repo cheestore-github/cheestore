@@ -1,0 +1,44 @@
+{% extends 'main.html' %}
+
+
+{% block titile %}ساخت کیف پول الکترونیکی{% endblock titile %}
+
+
+{% block content %}
+    <h1>صفحه ساخت کیف پول الکترونیکی</h1>
+
+    <form action="" method="post" class=form-group>
+        {% csrf_token %}
+        <div class ="form-group">
+            <label for="balance"><strong>موجودی حساب :</strong></label>
+            <div class="ui left icon input">
+                <input type="text"  name="balance" id="balance" class="form-control" value ="0" readonly>
+                <i class="money icon"></i>
+            </div>
+        </div>
+        <div class ="form-group">
+            <label for="account_name"><strong>صاحب حساب :</strong></label>
+            <div class="ui left icon input">
+                <input type="text"  name="account_name" id="account_name" class="form-control" value="{{user}}">
+                <i class="user icon"></i>
+            </div>
+        </div>
+        <div class ="form-group">
+            <label for="account_number"><strong>شماره حساب :</strong></label>
+            <div class="ui left icon input">
+                <input type="text"  name="account_number" id="account_number" class="form-control">
+                <i class="key icon"></i>
+            </div>
+        </div>
+        <div class ="form-group">
+            <label for="bank"><strong>نام بانک :</strong></label>
+            <div class="ui left icon input">
+                <input type="text" name="bank" id="bank" class="form-control">
+                <i class="key icon"></i>
+            </div>
+        </div>
+        {% comment %} {{form.as_p}} {% endcomment %}
+        <input type="submit" class="btn btn-success btn-lg" value="تایید">
+    </form>
+
+{% endblock content %}

@@ -4,6 +4,7 @@ from apps.accounts.models import CustomUser
 from django.core.exceptions import ValidationError
 
 
+
 class UserRegisterForm(forms.ModelForm):
     password1 = forms.CharField(label='رمز عبور',widget=forms.PasswordInput)
     password2 = forms.CharField(label='تکرار رمز عبور',widget=forms.PasswordInput)
@@ -35,7 +36,7 @@ class SellerRegisterForm(forms.ModelForm):
 
     class Meta:
         model = SellerUser
-        fields = ['gender','birthdate', 'address']
+        fields = ['img_profile','gender','birthdate', 'img_national_card','address']
 
 #==================================================================================================================================================
 
@@ -57,8 +58,16 @@ class SellerLoginForm(forms.ModelForm):
     
 
 #================================================================================================================================
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = CustomUser
+        fields = ('name', 'family', 'phone_number', 'national_code', 'email')
 
 
+
+
+#================================================================================================================================
 # class PhoneRegisterForm(forms.ModelForm):
 
 #     class Meta:

@@ -1,11 +1,13 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
-
-from .forms import SellerRegisterForm, UserRegisterForm, SellerLoginForm, PhoneRegisterForm
+from .models import SellerUser
+from .forms import SellerRegisterForm, UserRegisterForm, SellerLoginForm, PhoneRegisterForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
 from django.views import View
 import random
 
+
+#=================================SellerRegister===================================================
 
 class SellerRegisterView(View):
     # def dispatch(self, request, *args, **kwargs):
@@ -20,7 +22,7 @@ class SellerRegisterView(View):
 
     def post(self,request,*args, **kwargs):
         user_form = UserRegisterForm(request.POST)
-        seller_form = SellerRegisterForm(request.POST)
+        seller_form = SellerRegisterForm(request.POST, request.FILES)
         if user_form.is_valid() and seller_form.is_valid():
             custom_user = user_form.save()
             seller = seller_form.save(commit=False)
@@ -32,7 +34,7 @@ class SellerRegisterView(View):
             messages.error(request, 'اطلاعات وارد شده معتبر نمی باشد')
             return render(request, 'seller/register.html', {'user_form': user_form, 'seller_form': seller_form})
 
-
+#=================================SellerLogin===================================================
 
 class SellerLoginView(View):
     # def dispatch(self, request, *args, **kwargs):
@@ -68,7 +70,7 @@ class SellerLoginView(View):
             messages.error(request, 'اطلاعات وارد شده معتبر نمی باشد')
             return render(request, 'seller/login.html', {'form':form})
 
-
+#============================SellerLogout========================================================
 
 class SellerLogoutView(View):    
     def dispatch(self, request, *args, **kwargs):
@@ -81,13 +83,49 @@ class SellerLogoutView(View):
         messages.warning(request, 'خروج شما با موفقیت انجام شد')
         return redirect('seller:login')
 
+#=============================SellerProfile=======================================================
+from apps.accounts.models import CustomUser
 
 class SellerProfileView(View):
     def get(self,request,*args, **kwargs):
-        return render(request, 'seller/profile.html',{'form':'form'})
+        user=request.user
+        seller =SellerUser.objects.get(user=user)
+        return render(request, 'seller/profile.html', {'user':user, 'seller':seller})
+
+
+#=============================SellerUpdateProfile=======================================================
+
+class SellerUpdateProfileView(View):
+    def get(self,request,*args, **kwargs):
+        user_form = UserProfileForm(instance=request.user)
+        seller_form = SellerRegisterForm(instance=request.user.selleruser)
+        return render(request, 'seller/update_profile.html',{'user_form':user_form, 'seller_form':seller_form})
 
     def post(self,request,*args, **kwargs):
-        return redirect('seller:dashboard')
+        user_form = UserProfileForm(request.POST, instance=request.user)
+        seller_form = SellerRegisterForm(request.POST, request.FILES, instance=request.user.selleruser)
+        if user_form.is_valid() and seller_form.is_valid():
+            user_form.save()
+            seller_form.save()
+            messages.success(request, 'پروفایل شما با موفقیت ویرایش شد')
+            return redirect('seller:dashboard')
+        else:
+            messages.error(request, 'اطلاعات وارد شده معتبر نمی باشد')
+            return render(request, 'seller/update_profile.html', {'user_form': user_form, 'seller_form': seller_form})
+
+#=============================ChangePassword=======================================================
+
+
+from django.urls import reverse_lazy
+from django.contrib.auth.views import PasswordChangeView
+from django.contrib.messages.views import SuccessMessageMixin
+
+class ChangePasswordView(SuccessMessageMixin, PasswordChangeView):
+    template_name = 'seller/change_password.html'
+    success_message = "رمز عبور با موفقیت تغییر کرد"
+    success_url = reverse_lazy('seller:dashboard')
+
+#=============================SellerDashboard=======================================================
 
 class SellerDashboardView(View):
     def get(self,request,*args, **kwargs):
@@ -97,7 +135,7 @@ class SellerDashboardView(View):
         pass
 
 
-#====================================================================================
+#============================PhoneRegister========================================================
 # def codeGenerate():
 #     return random.randint(1000,9999)
 from django_otp.oath import totp
@@ -115,7 +153,7 @@ def phone_register(request):
         return redirect('seller:phone_verify')
     return render(request, 'seller/phone_register.html', {'form':form})
 
-
+#============================PhoneVerify========================================================
 
 def phone_verify(request):
     print("code", code)

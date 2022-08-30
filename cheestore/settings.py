@@ -45,6 +45,7 @@ INSTALLED_APPS = [
 
     'apps.seller.apps.SellerConfig',
     'apps.accounts.apps.AccountsConfig',
+    'apps.wallet.apps.WalletConfig'
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
@@ -150,8 +151,6 @@ MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
 AUTH_USER_MODEL = 'accounts.CustomUser'
 
-# LOGIN_REDIRECT_URL = 'index'
-# LOGOUT_REDIRECT_URL = 'index'
+LOGIN_URL = '/'
