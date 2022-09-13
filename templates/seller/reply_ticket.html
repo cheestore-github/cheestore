@@ -1,0 +1,30 @@
+{% extends 'main.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}پاسخ تیکت{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center text-primary">پاسخ تیکت</h1>
+<div class="row justify-content-md-center form-group">
+
+
+    <ul>
+        <li>ادمین: {{reply.admin}}</li>
+        <li>پاسخ تیکت: {{reply.reply}}</li>
+        <li>کاربر: {{reply.user}}</li>
+        <li>زمان پاسخگویی: {{reply.created_at}}</li>
+
+    </ul>
+
+    <hr>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input type="submit" value="ارسال" class="btn btn-success">
+    </form>
+
+
+</div>
+{% endblock content %}

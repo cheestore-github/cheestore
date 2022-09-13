@@ -1,0 +1,26 @@
+{% extends 'main.html' %}
+
+{% block title %}جزئیات کالا{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center text-primary">جزئیات کالا</h1>
+<div class="row justify-content-md-center form-group">
+
+    <ul>
+        <li>نام کالا: {{dress}}</li>
+        <li>دسته بندی: {{dress.first_category}}</li>
+        <li>تعداد: {{dress.numbers}}</li>
+        <li>سایز : {{dress.size}}</li>
+        <li>جنس: {{dress.nature}}</li>
+        <li>رنگبندی: {% for color in dress.colors.all %}{{ color }},{% endfor %}</li>
+        <li>قیمت: {{dress.price}}</li>
+        <li>توضیحات: {{dress.description}}</li>
+        <li>تصویر کالا: {{dress.image}}</li>
+        <li>ویدئوی کالا: {{dress.videofile}}</li>
+        <li>موجودی: {{dress.stock}}</li>
+    </ul>
+
+
+</div>
+{% endblock content %}

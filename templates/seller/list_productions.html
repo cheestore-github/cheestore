@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block title %}انبار{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center text-primary">لیست کالاها</h1>
+<div class="row justify-content-md-center form-group">
+    <ul>
+
+        {% for dress in dresses %}
+            <a href="{% url 'seller:detail_production' dress.id %}"><li>{{dress}}</li></a>
+        {% endfor %}
+
+    </ul>
+
+</div>
+{% endblock content %}

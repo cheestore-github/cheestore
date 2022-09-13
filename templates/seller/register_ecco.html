@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}اطلاعات تجاری{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center text-primary">ثبت نام فروشندگان</h1>
+<div class="row justify-content-md-center form-group">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input type="submit" value="ادامه" class="btn btn-success">
+    </form>
+</div>
+{% endblock content %}

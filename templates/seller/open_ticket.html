@@ -1,0 +1,16 @@
+{% extends 'main.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}پشتیبانی{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center text-primary">تیکت پشتیبانی</h1>
+<div class="row justify-content-md-center form-group">
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form | crispy }}
+        <input type="submit" value="ارسال" class="btn btn-success">
+    </form>
+</div>
+{% endblock content %}

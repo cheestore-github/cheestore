@@ -1,0 +1,28 @@
+{% extends 'main.html' %}
+
+{% block title %}جزئیات تیکت{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center text-primary">جزئیات تیکت</h1>
+<div class="row justify-content-md-center form-group">
+
+    <ul>
+        <li>موضوع: {{ticket}}</li>
+        <li>محتوای تیکت: {{ticket.description}}</li>
+        <li>فایل الصاق شده: {{ticket.att_file}}</li>
+        <li>زمان ایجاد تیکت : {{ticket.created_at}}</li>
+        <li>وضعیت: {{production.status}}</li>
+
+    </ul>
+    <br>
+{% comment %} 
+    <ul>
+        <li>پشتیبان: {{reply.ticket.description}}</li>
+        <li>پاسخ تیکت: {{reply.reply}}</li>
+
+    </ul> {% endcomment %}
+
+
+</div>
+{% endblock content %}

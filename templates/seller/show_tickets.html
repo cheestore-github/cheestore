@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block title %}تیکت های شما{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center text-primary">تیکت های شما</h1>
+<div class="row justify-content-md-center form-group">
+    <ul>
+
+        {% for ticket in tickets %}
+            <a href="{% url 'seller:detail_ticket' ticket.id %}"><li>{{ticket}}</li></a>
+        {% endfor %}
+
+    </ul>
+
+</div>
+{% endblock content %}
