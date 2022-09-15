@@ -8,19 +8,19 @@
 
 {% block content %}
     <h1 class="text-center text-primary">ورود فروشندگان</h1>
-    <div class="row justify-content-md-center">
+    <div class="row justify-content-md-center m-5">
         <form action="" method="post">
             {% csrf_token %}
             {{ form | crispy }}
-            <input type="submit" value="ورود" class='btn btn-primary'>
+            <input type="submit" value="ورود" class='btn btn-success btn-lg'>
         </form>
     </div>
-    <div>
-        <p><a href="">رمز عبورم را فراموش کرده ام</a></p>
+    <div class="m-5">
+        <p><a href="/accounts/password_reset/">رمز عبورم را فراموش کرده ام</a></p>
     </div>
     
     
-    <div>
+    <div class="m-5">
         <p>هنوز ثبت نام کرده اید؟<a href="{% url 'seller:phone_register' %}">همین حالا ثبت نام کنید</a></p>
         
     </div>

@@ -3,6 +3,7 @@ from django.contrib import messages
 from .models import SellerUser
 from .forms import SellerRegisterForm, UserRegisterForm, SellerLoginForm, PhoneRegisterForm, UserProfileForm
 from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.views import View
 import random
 
