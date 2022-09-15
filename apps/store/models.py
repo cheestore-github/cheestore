@@ -1,5 +1,5 @@
 from django.db import models
-from accounts.models import CustomUser
+from apps.accounts.models import CustomUser
    
 
 gender_choices=(('مرد','مرد'),('زن','زن'))

@@ -139,7 +139,7 @@ class StoreDashboardView(View):
 #============================PhoneRegister========================================================
 # def codeGenerate():
 #     return random.randint(1000,9999)
-from django_otp import totp
+from django_otp.oath import totp
 
 secret_key = b'12345678901234567890'
 code = totp(key=secret_key, step=30, digits=4)

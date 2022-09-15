@@ -1,5 +1,5 @@
 from django import forms
-from .models import StoreUser
+from .models import Store
 from apps.accounts.models import CustomUser
 from django.core.exceptions import ValidationError
 from .validators import telephone_regex, zip_code_regex
@@ -35,7 +35,7 @@ class StoreRegisterForm(forms.ModelForm):
                                 )
 
     class Meta:
-        model = StoreUser
+        model = Store
         fields = ['img_profile','gender','birthdate', 'img_national_card','address']
 
 #==================================================================================================================================================
@@ -51,7 +51,7 @@ class StoreLoginForm(forms.ModelForm):
                                    )
 
     class Meta:
-        model = StoreUser
+        model = Store
         fields=['phone_number', 'password']
 
 
@@ -70,4 +70,12 @@ class StoreRegisterForm(forms.Form):
     telephone_number = forms.CharField(validators=[telephone_regex])
     zip_code = forms.CharField(validators=[zip_code_regex])
     phone_number = forms.CharField(label="", help_text="مثال: 09123456789",
+                                    )
+
+
+class PhoneRegisterForm(forms.Form):
+    phone_number = forms.CharField(label="", help_text="مثال: 09123456789",
+                                    # widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'شماره تلفن همراه خود را وارد کنید'}),
+                                    # error_messages={'required':'این فیلد الزامی است'},
+                                    # validators=[RegexValidator(regex='^(09)\d{9}$',message="تلفن همراه می بایست 11رقم و فقط شامل عدد باشد  ",)]
                                     )

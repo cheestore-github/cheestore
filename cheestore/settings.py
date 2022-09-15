@@ -44,7 +44,10 @@ INSTALLED_APPS = [
 
     'apps.seller.apps.SellerConfig',
     'apps.accounts.apps.AccountsConfig',
-    'apps.wallet.apps.WalletConfig'
+    'apps.wallet.apps.WalletConfig',
+    'apps.marketer.apps.MarketerConfig',
+    'apps.store.apps.StoreConfig',
+
 ]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'

@@ -1,6 +1,5 @@
-from xml.dom.minidom import Notation
 from django.db import models
-from accounts.models import CustomUser
+from apps.accounts.models import CustomUser
 
 
 
@@ -37,6 +36,7 @@ class ProfileMrketer(models.Model):
     class Meta:
         verbose_name = 'نماینده'
         verbose_name_plural = 'نماینده ها '
+
 
 
 
