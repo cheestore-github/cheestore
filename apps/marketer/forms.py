@@ -4,6 +4,8 @@ from .models import ProfileMrketer
 from django.core.exceptions import ValidationError
 
 
+###########################################################################################################################################################################################
+
 class ApplicationForm(forms.ModelForm):
 
     phone_number = forms.CharField(max_length=255, label="تلفن همراه",
@@ -42,10 +44,14 @@ class ApplicationForm(forms.ModelForm):
 
 
     
-class Meta:
-        model = ProfileMrketer
-        fields = ['personal_image','gender','cv']
+    class Meta:
+            model = ProfileMrketer
+            fields = ['personal_image','gender','cv']
 
+
+
+
+###########################################################################################################################################################################################
 
 class UserRegisterForm(forms.ModelForm):
     password1 = forms.CharField(label='رمز عبور',widget=forms.PasswordInput)
@@ -69,3 +75,23 @@ class UserRegisterForm(forms.ModelForm):
         if commit:
             user.save()
         return user
+
+###########################################################################################################################################################################################
+
+class MarketerLoginForm(forms.ModelForm):
+    national_code = forms.CharField(label="کدملی",
+                                   widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'شماره کدملی خود را وارد کنید'}),
+                                   error_messages={'required':'این فیلد الزامی است'}
+                                   )
+    password = forms.CharField(label="رمز عبور",
+                                   widget=forms.PasswordInput(attrs={'class':'form-control', 'placeholder':'رمز عبور را وارد کنید'}),
+                                   error_messages={'required':'این فیلد الزامی است'}
+                                   )
+
+###########################################################################################################################################################################################
+
+class UserProfileForm(forms.ModelForm):
+
+    class Meta:
+        model = CustomUser
+        fields = ('name', 'family', 'phone_number', 'national_code', 'email')

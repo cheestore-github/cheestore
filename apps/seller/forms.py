@@ -82,4 +82,4 @@ class PhoneRegisterForm(forms.Form):
                                     # widget=forms.TextInput(attrs={'class':'form-control', 'placeholder':'شماره تلفن همراه خود را وارد کنید'}),
                                     # error_messages={'required':'این فیلد الزامی است'},
                                     # validators=[RegexValidator(regex='^(09)\d{9}$',message="تلفن همراه می بایست 11رقم و فقط شامل عدد باشد  ",)]
-                                    )
+                                    ) 
