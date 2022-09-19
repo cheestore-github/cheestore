@@ -1,0 +1,22 @@
+{% extends 'main.html' %}
+
+{% block title %}{% endblock title %}
+
+{% block content %}
+    <div class="row justify-content-between">
+        <div class="col-3">
+            <a class="btn btn-outline-info btn-lg" href="{% url 'marketer:profile' %}">پروفایل<i class="user icon"></i></a>
+        </div>
+        <div class="col-3">
+            <a class="btn btn-outline-info btn-lg" href="{% url 'wallet:create_wallet' %}">کیف پول<i class="money icon"></i></a>            
+        </div>
+        <div class="col-3">
+            <a class="btn btn-outline-info btn-lg" href="">تیکت</a>           
+        </div>
+        <div class="col-3">
+            <a class="btn btn-outline-info btn-lg" href="">اضافه کردن محصول</a>            
+        </div>
+    </div>
+
+    <h1>{{user}} به پنل کاربری خوش آمدید</h1>
+{% endblock content %}

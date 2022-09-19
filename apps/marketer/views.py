@@ -78,7 +78,7 @@ class MarketerApplicationView(View):
             return redirect('marketer:login')
         else:
             messages.error(request, 'اطلاعات وارد شده معتبر نمی باشد')
-            return render(request, 'seller/register.html', {'user_form': user_form, 'marketer_form': marketer_form})
+            return render(request, 'marketer/register.html', {'user_form': user_form, 'marketer_form': marketer_form})
 
 #=============================MarketerProfile=======================================================
 

@@ -1,0 +1,53 @@
+{% extends 'main.html' %}
+
+{% block title %}پروفایل {{user}}{% endblock title %}
+
+
+{% block content %}
+
+<img src="{{marketer.personal_image.url}}" alt="{{marketer.user}}">
+<div>
+    <h2>اطلاعت شخصی :</h2>
+    <hr>
+    <p>نام : {{user.name}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    نام خانوادگی : {{user.family}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    تلفن همراه : {{user.phone_number}}</p>
+    <p>
+    کدملی : {{user.national_code}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    آدرس ایمیل : {{user.email}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    جنسیت : {{marketer.gender}}
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+   </p>
+    <p>
+    آدرس : {{marketer.address}}
+    </p>
+</div>
+<br>
+    <hr>
+<br>
+<div>
+        <h2>اطلاعات نماینده :</h2>
+        <hr>
+        <p>کد پستی : {{user.zip_code}}
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        تلفن همراه : {{user.phone_number}}</p>
+        <p>
+        شماره شناسنامه : {{user.id_number}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        جنسیت : {{marketer.gender}}
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        تاریخ تولد : {{seller.birthdate}}</p>
+        <p>
+        آدرس : {{marketer.address}}
+        </p>
+</div>
+
+<a class="btn btn-danger btn-lg mt-4" href="{% url 'marketer:update_profile' %}">ویرایش اطلاعات</a>
+
+{% endblock content %}
+
+

@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+
+{% block title %}صفحه ویرایش پروفایل {{user}}{% endblock title %}
+
+{% block content %}
+<h1>ویرایش پروفایل<h1>
+
+
+<form action="marketer" method="post" enctype="multipart/form-data">
+    {% csrf_token %}
+    <div class="form-group">
+    {{user_form.as_p}}
+    {{marketer_form.as_p}}
+    <div class="form-group">
+        <a href="{% url 'marketer:change_password' %}">تغییر رمز عبور</a>
+    </div>
+    <input type="submit"  class='btn btn-success btn-lg' value="ذخیره">
+    </div>
+</form>
+
+{% endblock content %}
+
+  
