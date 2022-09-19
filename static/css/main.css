@@ -44,17 +44,16 @@
     font-style: normal;
 }
 
-
-
 body{
+    /* background-color: #001CBA; */
+    background-image: url('logo/clothing1.jpg');
     font-family: 'IRANSANSExpanded';
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    background-size:cover;
 }
-footer{
-    margin-top: auto;
-}
+
 
 
 
@@ -86,3 +85,15 @@ a{
     text-align: center;
     vertical-align: middle;
  }
+
+button{
+ background-color:#4b0082;
+ border:none;
+ border-radius:7px;
+ color:yellow;
+ padding:10px 25px;
+ text-align:center;
+ font-size:24px;
+ cursor:pointer;
+}
+

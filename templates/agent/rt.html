@@ -1,0 +1,126 @@
+{% extends 'main.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} ثبت نام متقاضیان دوره{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center" style="color:white">ثبت نام متقاضیان دوره آموزش نمایندگی</h1>
+<br>
+<!-- Start Reservation -->
+<div class="reservation-box">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-sm-12 col-xs-12">
+                <div class="contact-block">
+                    <form method="POST">
+                        {% csrf_token %}
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="name" name="name" placeholder="نام" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>                                 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="national_code" name="national_code" placeholder="کد ملی" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>                                 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="phone_number" name="phone_number" placeholder="شماره همراه" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>                                 
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="family" name="family" placeholder="نام خانوادگی" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>                                 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="ایمیل" id="email" class="form-control" name="email" required data-error="Please enter your email">
+                                        <div class="help-block with-errors"></div>
+                                    </div> 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="سال تولد" id="phone" class="form-control" name="phone" required data-error="Please enter your Numbar">
+                                        <div class="help-block with-errors"></div>
+                                    </div> 
+                                </div>
+                                {% comment %} <div class="col-md-12">
+                                    <div class="form-group">
+                                            <input type="text" placeholder="شهر مورد تقاضا برای نمایندگی" id="agency_city" class="form-control" name="agency_city" required data-error="Please enter your Numbar">
+                                            <div class="help-block with-errors"></div> 
+                                    </div>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" placeholder="میزان تحصیلات" id="schooling" class="form-control" name="schooling" required data-error="Please enter your Numbar">
+                                        <div class="help-block with-errors"></div>
+                                    </div> 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="last_collab" name="last_collab" placeholder="مدت همکاری در آخرین تجربه شغلی" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>                                 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="perfational_skills" name="perfational_skills" placeholder="مهارت های حرفه ای" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>                                 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="plunge_case" name="plunge_case" placeholder="وضعیت اشتغال" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>                                 
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <input type="text" class="form-control" id="favorites" name="favorites" placeholder="مزایای مورد علاقه شما" required data-error="Please enter your name">
+                                        <div class="help-block with-errors"></div>
+                                    </div>                                 
+                                </div>                                
+                                <div class="col-md-12">
+                                    <div class="form-group">
+                                        <select class="custom-select d-block form-control" name="familiarity_with_us" id="familiarity_with_us" required data-error="Please select Person">
+                                            <option disabled selected>چگونه با ما آشنا شدید؟انتخاب کنید</option>
+                                            <option value="1">جستجو در اینترنت</option>
+                                            <option value="2">اینستاگرام</option>
+                                            <option value="3">تلگرام</option>
+                                            <option value="4">دوستان و آشنایان</option>
+                                            <option value="5">سایر</option>
+                                        </select>
+                                        <div class="help-block with-errors"></div>
+                                    </div> 
+                                </div> {% endcomment %}
+                            </div>
+                        </div>   
+                        <br>
+                        <br>
+                        <button class="text-center">ثبت اطلاعات</button>          
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+{% endblock content %}
+    
+    
+    
+    

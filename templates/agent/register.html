@@ -1,0 +1,21 @@
+{% extends 'main.html' %}
+
+{% load crispy_forms_tags %}
+
+{% block title %}صفحه ثبت نام نمایندگان{% endblock title %}
+
+
+{% block content %}
+<h1 class="text-center" style="color:white">ثبت نام متقاضیان اخذ نمایندگی</h1>
+<br>
+
+<div class="row justify-content-md-center form-group" style="color:white">  
+    <form enctype="multipart/form-data" action="" method="post">
+        {% csrf_token %}
+        {{ user_form | crispy }}
+        {{ agent_form | crispy }}
+        <br>
+        <button>ثبت اطلاعات</button>
+    </form>
+</div>
+{% endblock content %}

@@ -1,8 +1,19 @@
+{% load static %}
+
 <footer class = "footer mt-auto py-3 bg-dark" >
     <div class="container">
-        <span style="color: #fff;">
-            <p>تمامی حقوق این سایت متعلق به شرکت لیان یاقوت ممتاز ایده (لیما) می باشد</p>
-            <p>&copy; تابستان 1401</p>
-        </span>
+      <div class="row">
+        <div class="col" >
+          <a href="{% static 'logo/enamad.html' %}" target="_blank"><img src="{% static 'logo/enamad.jpg' %}"></a>
+          <a href="{% url 'about' %}">درباره ما | </a>
+          <a href="{% url 'common_questions' %}">سوالات متداول</a>
+
+        </div>
+      </div>
+      
+      <span style="color: #fff;">
+          <p>تمامی حقوق این سایت متعلق به شرکت لیان یاقوت ممتاز ایده (لیما) می باشد</p>
+          <p>&copy; تابستان 1401</p>
+      </span>
     </div>
 </footer>

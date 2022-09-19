@@ -44,6 +44,7 @@ INSTALLED_APPS = [
     'crispy_forms',
 
     'apps.seller.apps.SellerConfig',
+    'apps.agent.apps.AgentConfig',
     'apps.accounts.apps.AccountsConfig',
 ]
 

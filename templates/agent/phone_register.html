@@ -1,0 +1,18 @@
+{% extends 'main.html' %}
+
+{% block title %}ثبت تلفن همراه{% endblock title %}ثبت تلفن همراه
+
+{% block content %}
+<h1 class="text-center" style="color:white">ثبت تلفن همراه</h1>
+<div class="container" style="color:white">
+    <div class="row justify-content-center align-items-center">
+    <form action="" method="post">
+        {% csrf_token %}
+        {{ form }}
+        <div>
+        <input type="submit" class="btn btn-primary mt-3" value="تایید">
+        </div>
+    </form>
+    </div>
+</div>
+{% endblock content %}

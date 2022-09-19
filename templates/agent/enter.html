@@ -1,0 +1,23 @@
+{% extends 'main.html' %}
+{% load static %}
+
+{% block title %}ورود{% endblock title %}
+
+
+{% block content %}
+{% comment %} <iframe src="https://iframe.enama.ir/player/3573305" allowFullScreen="true" scrolling="no" webkitallowfullscreen="true" mozallowfullscreen="true" style="width: 100%; height: 100%"></iframe> {% endcomment %}
+{% comment %} <h1 class="text-center text">سامانه ثبت نام نمایندگان پوشاک ایران</h1> {% endcomment %}
+<div id="3573305" datakey="3573305">
+    <script type="text/JavaScript" src="https://api.enama.ir/Object/embeded/3573305">
+    </script>
+</div>
+<br>
+<br>
+
+<button type="button" class="button"><a href="{% url 'agent:register' %}" alt='Broken Link'>ثبت نام متقاضیان اخذ نمایندگی</a></button>
+<button type="button" class="button"><a href="{% url 'agent:train_register' %}" alt='Broken Link'>ثبت نام متقاضیان دوره آموزش نمایندگی</a></button>
+<p style="text-align:center;" width="720px"><img src="{% static 'css/logo/chee.jpg' %}" width="120" height="120" alt="centered image"></p>
+{% comment %} <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=248366&amp;Code=nWHbJZwi5ZetplLy6fZO"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=248366&amp;Code=nWHbJZwi5ZetplLy6fZO" alt="" style="cursor:pointer" id="nWHbJZwi5ZetplLy6fZO"></a> {% endcomment %}
+{% comment %} <a href="{% url 'agent:register' %}"><input type="submit" value="ثبت نام" class="btn btn-success"></a> {% endcomment %}
+
+{% endblock content %}

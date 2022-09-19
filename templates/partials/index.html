@@ -1,0 +1,73 @@
+{% extends 'main.html' %}
+
+{% block title %}صفحه ثبت نام فروشندگان{% endblock title %}
+
+
+
+{% block content %}
+<h1>سامانه فروش تولیدکنندگان پوشاک کشور</h1>
+
+<div class="seller-login-form">
+    <form action="{% url 'accounts:login' %}" method="post">
+            {% csrf_token %}
+            <div class="form-group">
+                <label for="phone_number"><strong>تلفن همراه:</strong></label>
+                <div class="ui left icon input">
+                    <input type="text" placeholder='تلفن همراه خود را وارد کنید' class="form-control">
+                    <i class="user icon"></i>
+                </div>
+            </div>
+            <div class ="form-group">
+                <label for="password"><strong>رمز عبور:</strong></label>
+                <div class="ui left icon input">
+                    <input type="password" placeholder="رمز عبور" class="form-control">
+                    <i class="key icon"></i>
+                </div>
+            </div>
+        <input class="btn btn-lg btn-success m-2" type="submit" value="ورود" class="form-control">
+        <div class="checkbox my-1 mr-sm-2">
+            <input type="checkbox" name= "remember_me" id="remember_me">
+            <label for="remember_me">مرا به خاطر بسپار</label>
+        </div>
+        <div class="my-4">
+            <p>هنوز ثبت نام کرده اید؟<a href="{% url 'accounts:register' %}">همین حالا ثبت نام کنید</a></p>
+        </div>
+    </form>
+</div>
+
+
+{% comment %} <h1>به صفحه فروشندگان چی استور خوش آمدید</h1>
+
+
+<div class="m-auto">
+<form action="{% url 'accounts:login' %}" method="post" id="login-form" >
+    {% csrf_token %}
+    <div class= "mt-2">
+        <label for="phone_number">تلفن همراه :</label>
+        <input name='phone_number' placeholder='تلفن همراه خود را وارد کنید' maxlength='255' autocomplete='email' required>
+    </div>
+               
+    <div class= "mt-2">
+        <label for="password">رمز عبور :</label>
+        <input name='password' type='password' placeholder='رمز عبور خود را وارد کنید' minlength='4' maxlength='255' autocomplete='current-password' required>
+    </div>
+
+    <div class= "mt-2">
+        <input class ="btn btn-success" type="submit" value="ورود">
+        <input type="hidden" name="next" value="{{ next }}"> 
+    </div>          
+</form>
+</div>
+
+<div>
+    <p><a href="">رمز عبورم را فراموش کرده ام</a></p>
+</div>
+
+
+<div>
+    <p>هنوز ثبت نام کرده اید؟<a href="{% url 'accounts:register' %}">همین حالا ثبت نام کنید</a></p>
+    
+</div>
+   {% endcomment %}
+
+{% endblock content %}
